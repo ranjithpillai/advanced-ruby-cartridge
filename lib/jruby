@@ -38,8 +38,10 @@ function jruby-install() {
 
 function install-required-gems() {
   echo "Installing required jems for JRuby"
-  curl https://rubygems.org/downloads/bundler-1.11.2.gem
-  curl https://rubygems.org/downloads/rake-10.5.0.gem
-  ${OPENSHIFT_RUBY_DIR}/.jruby/jruby -S gem install bundler rake --local
+  curl -o ${OPENSHIFT_RUBY_DIR}/.jruby/jruby/bundler-1.11.2.gem https://rubygems.org/downloads/bundler-1.11.2.gem
+  curl -o ${OPENSHIFT_RUBY_DIR}/.jruby/jruby/rake-10.5.0.gem https://rubygems.org/downloads/rake-10.5.0.gem
+  ls -l ${OPENSHIFT_RUBY_DIR}/.jruby/jruby
+  ${OPENSHIFT_RUBY_DIR}/.jruby/jruby -S gem install bundler --local
+  ${OPENSHIFT_RUBY_DIR}/.jruby/jruby -S gem install rake --local
   return 0
 }
