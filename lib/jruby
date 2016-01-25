@@ -41,7 +41,7 @@ function install-required-gems() {
   curl -s https://rubygems.org/downloads/bundler-1.11.2.gem -o ${OPENSHIFT_RUBY_DIR}/.jruby/bundler-1.11.2.gem
   curl -s https://rubygems.org/downloads/rake-10.5.0.gem -o ${OPENSHIFT_RUBY_DIR}/.jruby/rake-10.5.0.gem
   ls -l ${OPENSHIFT_RUBY_DIR}/.jruby
-  ${OPENSHIFT_RUBY_DIR}/.jruby/jruby -S gem install bundler --local ${OPENSHIFT_RUBY_DIR}/.jruby/bundler-1.11.2.gem
-  ${OPENSHIFT_RUBY_DIR}/.jruby/jruby -S gem install rake --local ${OPENSHIFT_RUBY_DIR}/.jruby/rake-10.5.0.gem
+  ${OPENSHIFT_RUBY_DIR}/.jruby/jruby -S gem install bundler --remote
+  ${OPENSHIFT_RUBY_DIR}/.jruby/jruby -S gem install rake --remote
   return 0
 }
