@@ -2,8 +2,11 @@
 function ruby_context {
   if [ "$OPENSHIFT_RUBY_RUNNING_PLATFORM" = "jruby" ]
   then
+    echo "Environment is jruby"
     jruby -S $1
   else
+    echo "Environment is not jruby"
+    echo $OPENSHIFT_RUBY_VERSION
     case $OPENSHIFT_RUBY_VERSION in
       1.8) eval $1 ;;
       1.9) /usr/bin/scl enable ruby193 "$1" ;;
